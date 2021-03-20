@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// start with monday because I want.
 func DaysOfTheWeek(n int) string {
 	switch {
 	case n == 1:
