@@ -5,20 +5,27 @@ const prefixPortuguese = "Olá, "
 const prefixEspanish = "Hola, "
 const prefixFrench = "Bonjour, "
 
+func prefixGreetings(idiom string) (prefix string) {
+
+	switch idiom {
+	case "portuguese":
+		prefix = prefixPortuguese
+	case "spanish":
+		prefix = prefixEspanish
+	case "french":
+		prefix = prefixFrench
+	default:
+		prefix = prefixEnglish
+	}
+
+	return
+}
+
 func HelloName(name, idiom string) string {
 
 	if name == "" {
 		return "Hello, World"
 	}
 
-	switch idiom {
-	case "portuguese":
-		return prefixPortuguese + name
-	case "spanish":
-		return prefixEspanish + name
-	case "french":
-		return prefixFrench + name
-	}
-
-	return prefixEnglish + name
+	return prefixGreetings(idiom) + name
 }
