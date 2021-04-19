@@ -1,13 +1,24 @@
 package hello_name
 
-const prefixPortuguese = "Olá, "
 const prefixEnglish = "Hello, "
+const prefixPortuguese = "Olá, "
 const prefixEspanish = "Hola, "
+const prefixFrench = "Bonjour, "
 
-func HelloName(name string) string {
-	if name != "" {
-		return "Hello, " + name + "!"
+func HelloName(name, idiom string) string {
+
+	if name == "" {
+		return "Hello, World"
 	}
 
-	return "Hello, World!"
+	switch idiom {
+	case "portuguese":
+		return prefixPortuguese + name
+	case "spanish":
+		return prefixEspanish + name
+	case "french":
+		return prefixFrench + name
+	}
+
+	return prefixEnglish + name
 }

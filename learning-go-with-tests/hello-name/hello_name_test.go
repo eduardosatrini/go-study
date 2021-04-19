@@ -11,16 +11,30 @@ func TestHelloName(t *testing.T) {
 		}
 	}
 
-	t.Run("Say hello for users", func(t *testing.T) {
-		result := HelloName("Eduardo")
-		expected := "Hello, Eduardo!"
+	t.Run("Say hello in portuguese", func(t *testing.T) {
+		result := HelloName("Eduardo", "portuguese")
+		expected := "Olá, Eduardo"
 
 		verifyIfMessageIsCorretly(t, result, expected)
 	})
 
-	t.Run("say 'Hello World!' when string 'name' is a empty", func(t *testing.T) {
-		result := HelloName("")
-		expected := "Hello, World!"
+	t.Run("Say hello in spanish", func(t *testing.T) {
+		result := HelloName("Henrique", "spanish")
+		expected := "Hola, Henrique"
+
+		verifyIfMessageIsCorretly(t, result, expected)
+	})
+
+	t.Run("say 'Hello World' when string 'name' and 'idiom' is a empty", func(t *testing.T) {
+		result := HelloName("", "")
+		expected := "Hello, World"
+
+		verifyIfMessageIsCorretly(t, result, expected)
+	})
+
+	t.Run("Say 'hello' in french", func(t *testing.T) {
+		result := HelloName("Edward", "french")
+		expected := "Bonjour, Edward"
 
 		verifyIfMessageIsCorretly(t, result, expected)
 	})
