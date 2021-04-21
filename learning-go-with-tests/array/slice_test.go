@@ -47,7 +47,7 @@ func TestSumAllSlicesValues(t *testing.T) {
 	result := SumAllSlicesValues(slice1, slice2, slice3)
 	expected := 14
 
-	if result != expected {
+	if !reflect.DeepEqual(result, expected) {
 		t.Errorf("result: %v, expected: %v", result, expected)
 	}
 
