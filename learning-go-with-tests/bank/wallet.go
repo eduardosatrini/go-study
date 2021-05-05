@@ -18,10 +18,14 @@ type Wallet struct {
 	balance Bitcoin
 }
 
+func (w *Wallet) Balance() Bitcoin {
+	return w.balance
+}
+
 func (w *Wallet) Deposit(v Bitcoin) {
 	w.balance += v
 }
 
-func (w *Wallet) Balance() Bitcoin {
-	return w.balance
+func (w *Wallet) Withdraw(v Bitcoin) {
+	w.balance -= v
 }
