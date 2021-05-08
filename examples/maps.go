@@ -1,21 +1,30 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	names := map[string]string{
-		"firstName": "Eduardo",
-		"lastName":  "Henrique",
+
+	city := map[string]int{
+		"Belém":          20,
+		"São Paulo":      30,
+		"Rio de Janeiro": 15,
+		"Belo Horizonte": 25,
 	}
 
-	fmt.Print(names["firstName"], " ")
-	fmt.Print(names["lastName"], "\n")
+	city["Fortaleza"] = 11
+	delete(city, "Rio de Janeiro")
 
-	numbers := make(map[int]int)
-	numbers[11] = 111
-	fmt.Println(numbers)
+	fmt.Println("\nSize map:", len(city))
+	fmt.Println(city)
 
-	animals := map[bool]bool{}
-	animals[true] = 5 > 5
-	fmt.Println(animals)
+	pcity := city
+	delete(pcity, "Belo Horizonte")
+	fmt.Println(pcity)
+
+	fmt.Println("\nExists: ")
+	value, ok := city["Rio de Janeiro"]
+	fmt.Println(value, ok) // 0, false
+
 }
