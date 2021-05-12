@@ -1,8 +1,11 @@
 package bank
 
 import (
+	"errors"
 	"fmt"
 )
+
+var ErrorInsufficientFunds = errors.New("unable to withdraw: insufficient balance.")
 
 type Bitcoin float64
 
@@ -26,6 +29,13 @@ func (w *Wallet) Deposit(v Bitcoin) {
 	w.balance += v
 }
 
-func (w *Wallet) Withdraw(v Bitcoin) {
+func (w *Wallet) Withdraw(v Bitcoin) error {
+
+	if v > w.balance {
+		return ErrorInsufficientFunds
+	}
+
 	w.balance -= v
+
+	return nil
 }
